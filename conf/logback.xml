@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+	<appender name="CONSOLE_LOG" class="ch.qos.logback.core.ConsoleAppender">
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+			<immediateFlush>true</immediateFlush>
+		</encoder>
+	</appender>
+	<appender name="SIMPLE_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/simple.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>logs/simple-%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>9</maxIndex>
+		</rollingPolicy>
+		<append>false</append>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>20MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+			<immediateFlush>true</immediateFlush>
+		</encoder>
+	</appender>
+	<appender name="SYSTEM_LOG"
+		class="ch.qos.logback.core.rolling.RollingFileAppender">
+		<file>logs/system.log</file>
+		<rollingPolicy class="ch.qos.logback.core.rolling.FixedWindowRollingPolicy">
+			<fileNamePattern>logs/system-%i.log</fileNamePattern>
+			<minIndex>1</minIndex>
+			<maxIndex>9</maxIndex>
+		</rollingPolicy>
+		<append>false</append>
+		<triggeringPolicy
+			class="ch.qos.logback.core.rolling.SizeBasedTriggeringPolicy">
+			<maxFileSize>20MB</maxFileSize>
+		</triggeringPolicy>
+		<encoder>
+			<charset>UTF-8</charset>
+			<pattern>%d{yyyy-MM-dd HH:mm:ss.SSS} %-5level %logger{36} - %msg%n</pattern>
+			<immediateFlush>true</immediateFlush>
+		</encoder>
+	</appender>
+	<logger name="com.example" level="info">
+		<appender-ref ref="SIMPLE_LOG" />
+		<appender-ref ref="CONSOLE_LOG" />
+	</logger>
+	<root level="debug">
+		<appender-ref ref="SYSTEM_LOG" />
+	</root>
+</configuration>

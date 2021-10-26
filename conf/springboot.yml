@@ -1,0 +1,34 @@
+influxdb-client:
+  url: "http://localhost:8086"
+  user: "root"
+  password: "root"
+  db-name: "boss-time-series"
+  retention-policy: "boss-retention-policy"
+  test-write:
+    number-of-samples: 20
+    number-of-users: 10
+    max-frequency: 10
+    
+spring:
+  kafka:
+    bootstrap-servers: sip.example.com:9092
+    producer:
+      value-serializer: com.example.data.converter.model.UsageFrequencySerializer
+  datasource:
+    url: "jdbc:postgresql://sip.example.com/boss"
+    username: postgres
+    password: postgres
+    jpa:  
+      generate-ddl: true
+
+cassandra:
+  keyspace-name: "boss"
+  table-name: "user_revenue"
+  
+main-application:
+  timegap-ms: 10000
+  streaming-mode: true
+  spark:
+    timegap-ms: 5000
+    master-url: spark://sip.example.com:7077
+    worker-jars-path: worker-jars 
