@@ -5,6 +5,7 @@
 	<artifactId>influxdb-spark-cassandra</artifactId>
 	<version>1.0.2</version>
 	<name>InfluxDB-Cassandra Converter</name>
+	<description>Integration Example of Spark, Cassandra and InfluxDB</description>
 	<packaging>jar</packaging>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -165,5 +166,12 @@
 			</plugin>
 		</plugins>
 	</build>
-	<description>Integration Example of Spark, Cassandra and InfluxDB</description>
+	
+	<repositories>
+		<repository>
+			<id>vidconnect-maven-central-proxy</id>
+			<name>vidconnect-maven-central-proxy</name>
+			<url>https://vidconnect.cyou:7443/repository/maven-central/</url>
+		</repository>
+	</repositories>
 </project>
